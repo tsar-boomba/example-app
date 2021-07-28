@@ -3,13 +3,13 @@ import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity } from
 
 import colors from '../config/colors'
 
-const WelcomeScreen = ({ navigation }: any) => {
+const WelcomeScreen: React.FC = ({ navigation }: any) => {
     const onLoginPress = () => {
         navigation.navigate('Login');
     }
 
-    const onregisterPress = () => {
-        navigation.navigate();
+    const onRegisterPress = () => {
+        navigation.navigate('Register');
     }
 
     return (
@@ -21,7 +21,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             <TouchableOpacity style={styles.loginButton} onPress={onLoginPress}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.registerButton}>
+            <TouchableOpacity style={styles.registerButton} onPress={onRegisterPress}>
                 <View><Text style={styles.buttonText}>Register</Text></View> 
             </TouchableOpacity>
         </View>

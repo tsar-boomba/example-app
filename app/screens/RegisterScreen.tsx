@@ -4,12 +4,14 @@ import { Button, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableO
 
 import colors from '../config/colors'
 
-const LoginScreen: React.FC = ({ navigation }: any) => {
+const RegisterScreen: React.FC = ({ navigation }: any) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [country, setCountry] = useState('');
 
-    const onLoginPress = () => {
-        //auth stuff here
+    const onRegisterPress = () => {
+        // auth stuff goes here
         navigation.navigate('Home');
     }
 
@@ -19,6 +21,13 @@ const LoginScreen: React.FC = ({ navigation }: any) => {
                 <Image style={styles.logo} source={require('../assets/almonds-logo.jpg')} />
             </View>
             <View style={styles.inputContainer}>
+                <TextInput 
+                    style={styles.input}
+                    onChangeText={(text) => setEmail(text)}
+                    value={email}
+                    placeholder='Email'
+                    autoCapitalize='none'
+                />
                 <TextInput 
                     style={styles.input}
                     onChangeText={(text) => setUsername(text)}
@@ -34,8 +43,8 @@ const LoginScreen: React.FC = ({ navigation }: any) => {
                     autoCapitalize='none'
                     secureTextEntry={true}
                 />
-                <TouchableOpacity style={styles.submitButton} onPress={onLoginPress}>
-                    <Text style={styles.submitButtonText}>Login</Text>
+                <TouchableOpacity style={styles.submitButton} onPress={onRegisterPress}>
+                    <Text style={styles.submitButtonText}>Register</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -82,4 +91,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LoginScreen;
+export default RegisterScreen;

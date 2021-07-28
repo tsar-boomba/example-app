@@ -12,7 +12,7 @@ const NowPlaying: any = () => {
 
     if (data.isPlaying === true) {
         return (
-            <View>
+            <View style={styles.container}>
                 <TouchableHighlight onPress={() => console.log('Now Playing Tapped')}>
                     <Image source={{ uri: data.songUrl, width: 64, height: 64 }} /><Text>NowPlaying {data.title}</Text>
                 </TouchableHighlight>
