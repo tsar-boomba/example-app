@@ -1,10 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import colors from '../config/colors'
+import { RegisterScreenNavigationProp } from '../config/types';
 
-const RegisterScreen: React.FC = ({ navigation }: any) => {
+type Props = {
+    navigation: RegisterScreenNavigationProp;
+};
+
+const RegisterScreen: React.FC<Props> = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -12,7 +17,11 @@ const RegisterScreen: React.FC = ({ navigation }: any) => {
 
     const onRegisterPress = () => {
         // auth stuff goes here
-        navigation.navigate('Home');
+        if (username === '') {
+            Alert.alert('Please input a valid username', 'Input anything');
+            return;
+        };
+        navigation.navigate('Home', { username: username });
     }
 
     return (

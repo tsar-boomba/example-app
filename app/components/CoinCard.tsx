@@ -9,16 +9,19 @@ interface CardProps {
     price: number;
     //coin doing good or bad
     pChange: number;
-}
+    id: number;
+    navigation?: any;
+};
 
-const CoinCard = ({ title, price, pChange }: CardProps) => {
-    //would have function to navigate a screen for each coin 
+const CoinCard = ({ title, price, pChange, id, navigation }: CardProps) => {
+    const onCardPress = () => {
+        navigation.navigate('CoinScreen', { coinId: id, pChange: pChange })
+    };
 
     return (
-        <TouchableOpacity style={styles.cardContainer}>
+        <TouchableOpacity style={styles.cardContainer} onPress={onCardPress}>
             <Text style={styles.title}>{title}</Text>
-            {/* <Text>{price}</Text> */}
-            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={2} prefix={'$'} renderText={(value) => <Text>{value}</Text>} />
+            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={5} prefix={'$'} renderText={(value) => <Text>{value}</Text>} />
             <View style={[styles.graph, pChange > 0 ? styles.graphBull : styles.graphBear]}>
                 <NumberFormat value={pChange} displayType={'text'} decimalScale={2} suffix={'%'} renderText={(value) => <Text>{value}</Text>} />
             </View>

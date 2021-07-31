@@ -1,16 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import colors from '../config/colors'
+import { LoginScreenNavigationProp } from '../config/types';
 
-const LoginScreen: React.FC = ({ navigation }: any) => {
+type Props = {
+    navigation: LoginScreenNavigationProp;
+};
+
+const LoginScreen: React.FC<Props> = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const onLoginPress = () => {
         //auth stuff here
-        navigation.navigate('Home');
+        if (username === '') {
+            Alert.alert('Please input a valid username', 'Input anything');
+            return;
+        };
+        navigation.navigate('Home', { username: username });
     }
 
     return (

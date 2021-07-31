@@ -1,9 +1,15 @@
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import colors from '../config/colors'
+import { WelcomeScreenNavigationProp } from '../config/types';
 
-const WelcomeScreen: React.FC = ({ navigation }: any) => {
+type Props = {
+    navigation: WelcomeScreenNavigationProp
+}
+
+const WelcomeScreen: React.FC<Props> = ({ navigation }) => {
     const onLoginPress = () => {
         navigation.navigate('Login');
     }

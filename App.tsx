@@ -1,25 +1,17 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Alert, 
-	Button, 
-	StyleSheet, 
-	Text, 
-	TouchableHighlight, 
-	View, 
-	SafeAreaView, 
-	StatusBar, 
-	ImageBackground, 
-	Image, 
-	Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import LoginScreen from './app/screens/LoginScreen';
-import HomeScreen from './app/screens/HomeScreen';
+import CoinScreen from './app/screens/Home/CoinScreen';
+import Home from './app/screens/Home/Home';
 
-const Stack = createStackNavigator();
+import { StackParamsList } from './app/config/types';
+
+const Stack = createStackNavigator<StackParamsList>();
 
 const App = () => {
 
@@ -43,24 +35,17 @@ const App = () => {
 				/>
 				<Stack.Screen 
 					name='Home'
-					component={HomeScreen}
+					component={Home}
+					options={{headerShown: false}}
+				/>
+				<Stack.Screen 
+					name='CoinScreen'
+					component={CoinScreen}
 					options={{headerShown: false}}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'blue',
-	},
-	text: {
-		color: 'white',
-	}
-});
 
 export default App;
