@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     background: {
         flex: 1,
         justifyContent: 'flex-end',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.dark
     },
     buttonText: {
         color: 'white',
@@ -62,7 +63,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logoText: {
-        fontSize: 40
+        fontSize: 40,
+        color: colors.light
     },
     registerButton: {
         width: '100%',

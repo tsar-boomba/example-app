@@ -35,6 +35,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation }) => {
                     onChangeText={(text) => setEmail(text)}
                     value={email}
                     placeholder='Email'
+                    placeholderTextColor={colors.light}
                     autoCapitalize='none'
                 />
                 <TextInput 
@@ -42,6 +43,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation }) => {
                     onChangeText={(text) => setUsername(text)}
                     value={username}
                     placeholder='Username'
+                    placeholderTextColor={colors.light}
                     autoCapitalize='none'
                 />
                 <TextInput 
@@ -49,6 +51,7 @@ const RegisterScreen: React.FC<Props> = ({ navigation }) => {
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     placeholder='Password'
+                    placeholderTextColor={colors.light}
                     autoCapitalize='none'
                     secureTextEntry={true}
                 />
@@ -64,13 +67,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignContent: 'center',
+        backgroundColor: colors.dark
     },
     input: {
         height: 40,
         margin: 10,
         padding: 10,
         borderRadius: 5,
-        borderWidth: 2
+        borderWidth: 2,
+        borderColor: colors.light,
+        color: colors.light
     },
     inputContainer: {
         flex: 1,
@@ -96,7 +102,8 @@ const styles = StyleSheet.create({
     },
     submitButtonText: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: colors.light
     }
 });
 

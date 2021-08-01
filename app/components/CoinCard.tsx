@@ -21,7 +21,7 @@ const CoinCard = ({ title, price, pChange, id, navigation }: CardProps) => {
     return (
         <TouchableOpacity style={styles.cardContainer} onPress={onCardPress}>
             <Text style={styles.title}>{title}</Text>
-            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={5} prefix={'$'} renderText={(value) => <Text>{value}</Text>} />
+            <NumberFormat value={price} displayType={'text'} thousandSeparator={true} decimalScale={5} prefix={'$'} renderText={(value) => <Text style={styles.graphText}>{value}</Text>} />
             <View style={[styles.graph, pChange > 0 ? styles.graphBull : styles.graphBear]}>
                 <NumberFormat value={pChange} displayType={'text'} decimalScale={2} suffix={'%'} renderText={(value) => <Text>{value}</Text>} />
             </View>
@@ -52,9 +52,13 @@ const styles = StyleSheet.create({
     graphBear: {
         backgroundColor: colors.bear,
     },
+    graphText: {
+        color: colors.light
+    },
     title: {
         fontSize: 16,
         fontWeight: 'bold',
+        color: colors.light
     },
 });
 

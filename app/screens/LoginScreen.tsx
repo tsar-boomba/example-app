@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Alert, Image, View, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import colors from '../config/colors'
 import { LoginScreenNavigationProp } from '../config/types';
@@ -33,6 +34,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     onChangeText={(text) => setUsername(text)}
                     value={username}
                     placeholder='Username'
+                    placeholderTextColor={colors.light}
                     autoCapitalize='none'
                 />
                 <TextInput 
@@ -40,6 +42,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     placeholder='Password'
+                    placeholderTextColor={colors.light}
                     autoCapitalize='none'
                     secureTextEntry={true}
                 />
@@ -55,13 +58,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignContent: 'center',
+        backgroundColor: colors.dark
     },
     input: {
         height: 40,
         margin: 10,
         padding: 10,
         borderRadius: 5,
-        borderWidth: 2
+        borderWidth: 2,
+        borderColor: colors.light,
+        color: colors.light
     },
     inputContainer: {
         flex: 1,
@@ -87,7 +93,8 @@ const styles = StyleSheet.create({
     },
     submitButtonText: {
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: colors.light
     }
 });
 
