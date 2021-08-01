@@ -15,7 +15,7 @@ const CoinScreen: React.FC<Props> = ({ route, navigation }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData]: any = useState();
     
-    const apiKey = apikey;
+    const apiKey = cmckey;
     const endpoint = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/info?CMC_PRO_API_KEY=';
     const qString = '&id=' + JSON.stringify(coinId)
     
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         top: StatusBar.currentHeight,
+        backgroundColor: colors.dark
     },
     graph: {
         backgroundColor: '#eaeaea',
@@ -71,7 +72,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 10,
         marginRight: 10,
-        flex: -1
+        flex: -1,
+        color: colors.light
     },
     titleContainer: {
         flexDirection: 'row',
