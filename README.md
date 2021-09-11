@@ -1,3 +1,5 @@
+# example-app
+
 ## How To Use
 Go to this url and use the Expo Go app on your phone to run the app
 
